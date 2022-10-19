@@ -1,0 +1,14 @@
+.nav_bar_container {
+  width: 100%;
+  overflow: hidden;
+}
+.nav_bar_container > nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  padding: 15px 10px;
+}
+.nav_bar_container > nav > li {
+  list-style-type: none;
+  cursor: pointer;
+}

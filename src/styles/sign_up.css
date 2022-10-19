@@ -1,0 +1,42 @@
+.sign_up_container {
+  width: 100%;
+  overflow: hidden;
+  height: auto;
+  position: relative;
+}
+.sign_up_content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.sign_up_from {
+  width: 30%;
+  border: 1px solid #1890ff;
+  margin: 0 auto;
+  padding: 15px 4px;
+  border-radius: 5px;
+  position: relative;
+}
+.auth_logo {
+  position: absolute;
+  top: 0px;
+}
+.auth_logo > img {
+  height: 90px;
+  width: 90px;
+}
+.llll {
+  position: relative;
+}
+.input {
+  padding: 10px;
+  border: 1px solid white;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 16px;
+  border-radius: 20px;
+}
