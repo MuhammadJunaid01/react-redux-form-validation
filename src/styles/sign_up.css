@@ -11,7 +11,7 @@
 }
 .sign_up_from {
   width: 30%;
-  height: auto;
+  height: fit-content;
   border: 1px solid #1890ff;
   margin: 0 auto;
   padding: 15px 4px;
@@ -25,8 +25,8 @@
   top: 0px;
 }
 .auth_logo > img {
-  height: 90px;
-  width: 90px;
+  height: 100px;
+  width: 100px;
 }
 .llll {
   position: relative;

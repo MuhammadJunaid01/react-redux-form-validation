@@ -4,22 +4,25 @@ import { useNavigate, useLocation } from "react-router-dom";
 import SignUpWellcome from "../../assets/images/loginAnimationFile.gif";
 import SignUpFromimg from "../../assets/images/loginLeafAnimi.gif";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { validationSchema } from "../../utils";
+import { signUpvalidationSchema } from "../../utils";
 import { useSignUpMutation } from "../../redux/api/auth";
-
-const SignUp = ({ isSigIn }) => {
+const SignUp = () => {
   const navigate = useNavigate();
-  const [isSignUp, setIsSignUp] = useState(true);
   const [signUp, { data, error, isSuccess, isLoading }] = useSignUpMutation();
-  const handleSubmit = (values) => {
-    console.log(values);
-    signUp(values);
-  };
+  const [isSignUp, setIsSignUp] = useState(true);
   useEffect(() => {
     if (data) {
       navigate("/");
     }
   }, [data]);
+  const handleSubmit = (values) => {
+    console.log(values);
+    signUp(values);
+  };
+  if (error) {
+    return <h1>Something was wrong! </h1>;
+  }
+  console.log("ENV", process.env.REACT_APP_API_KEY);
   return (
     <div className="sign_up_container">
       <div className="sign_up_content">
@@ -39,7 +42,7 @@ const SignUp = ({ isSigIn }) => {
                 email: "",
                 password: "",
               }}
-              validationSchema={validationSchema}
+              validationSchema={signUpvalidationSchema}
               onSubmit={(values) => {
                 // same shape as initial values
                 handleSubmit(values);
@@ -47,51 +50,51 @@ const SignUp = ({ isSigIn }) => {
             >
               {({ errors, touched }) => (
                 <Form>
-                  {isSignUp && (
-                    <>
-                      {isSigIn ? null : (
-                        <>
-                          <p style={{ margin: "8px " }}>Name:</p>
-                          <Field
-                            style={
-                              errors.name &&
-                              touched.name && { border: "1px solid #FED8B1" }
-                            }
-                            className="input"
-                            name="name"
-                          />
-                          {errors.name ? (
-                            <div style={{ marginLeft: "10px" }}>
-                              {errors.name}
-                            </div>
-                          ) : null}
-                        </>
-                      )}
-                    </>
-                  )}
+                  <p style={{ margin: "8px " }}>Name:</p>
+                  <Field
+                    style={
+                      errors.name &&
+                      touched.name && { border: "1px solid #FED8B1" }
+                    }
+                    className="input"
+                    name="name"
+                  />
+                  <ErrorMessage component="div" name="name" className="error" />
+
                   <p style={{ margin: "8px " }}>Email:</p>
                   <Field
-                    style={errors.email && { border: "1px solid #FED8B1" }}
+                    style={
+                      errors.email &&
+                      touched.email && { border: "1px solid #FED8B1" }
+                    }
                     className="input"
                     name="email"
                     type="email"
                   />
-                  {errors.email ? (
-                    <div style={{ marginLeft: "10px" }}>{errors.email}</div>
-                  ) : null}
+                  <ErrorMessage
+                    component="div"
+                    name="email"
+                    className="error"
+                  />
                   <p style={{ margin: "8px " }}>Password:</p>
                   <Field
-                    style={errors.password && { border: "1px solid #FED8B1" }}
+                    style={
+                      errors.password &&
+                      touched.password && { border: "1px solid #FED8B1" }
+                    }
                     className="input"
                     name="password"
                   />
-                  {errors.password ? (
-                    <div style={{ marginLeft: "10px" }}>{errors.password}</div>
-                  ) : null}
+                  <ErrorMessage
+                    component="div"
+                    name="password"
+                    className="error"
+                  />
 
                   <button className="form_submit" type="submit">
                     Submit
                   </button>
+
                   <p
                     style={{
                       textAlign: "center",
@@ -101,7 +104,7 @@ const SignUp = ({ isSigIn }) => {
                   >
                     Already have an account?
                     <span
-                      onClick={() => setIsSignUp(false)}
+                      onClick={() => navigate("/SignIn")}
                       style={{ color: "#1890ff", cursor: "pointer" }}
                     >
                       Sign in
@@ -116,5 +119,4 @@ const SignUp = ({ isSigIn }) => {
     </div>
   );
 };
-
 export default SignUp;

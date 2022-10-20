@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PageNotFound from "../components/error";
 import Home from "../components/home";
+import SignIn from "../components/sign_in/SignIn";
 import SignUp from "../components/sign_up/SignUp";
 import HomeLayoute from "../layoutes/homeLayoute";
 const PublicRoutes = () => {
@@ -12,7 +13,7 @@ const PublicRoutes = () => {
           <Route
             path="/"
             element={
-              <HomeLayoute isSignUp={false}>
+              <HomeLayoute>
                 <Home />
               </HomeLayoute>
             }
@@ -21,7 +22,7 @@ const PublicRoutes = () => {
             path="/signUp"
             element={
               <HomeLayoute isSignUp={true}>
-                <SignUp isSigIn={false} />
+                <SignUp />
               </HomeLayoute>
             }
           />
@@ -29,7 +30,7 @@ const PublicRoutes = () => {
             path="/SignIn"
             element={
               <HomeLayoute isSignUp={true}>
-                <SignUp isSigIn={true} />
+                <SignIn />
               </HomeLayoute>
             }
           />

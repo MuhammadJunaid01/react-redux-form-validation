@@ -16,6 +16,9 @@ export const authApi = createApi({
         };
       },
     }),
+    signIn: builder.query({
+      query: () => "users",
+    }),
   }),
 });
-export const { useSignUpMutation } = authApi;
+export const { useSignUpMutation, useSignInQuery } = authApi;

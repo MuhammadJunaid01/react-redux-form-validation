@@ -1,0 +1,15 @@
+.useDailog_container {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+.useDailog_content {
+  width: 92%;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 1px solid #1890ff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
