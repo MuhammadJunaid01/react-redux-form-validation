@@ -20,6 +20,7 @@ const Home = () => {
 
   /* A hook that is called when the component is mounted. */
   useEffect(() => {
+    /* Dispatching the data to the reducer. */
     dispatch(getUserLocation(data));
   }, [data]);
   /**
@@ -38,6 +39,8 @@ const Home = () => {
     dispatch(handleOpenDialog(false));
   };
   useEffect(() => {
+    /* This is a conditional statement that checks if the city is empty. If it is empty, it will return
+    nothing. If it is not empty, it will fetch the location data and set the data to the state. */
     if (city == "") {
       return;
     } else {
@@ -47,6 +50,9 @@ const Home = () => {
     }
   }, [city]);
   const handleData = () => {
+    /* This is a conditional statement that checks if the city is empty. If it is empty, it will return
+    
+        nothing. If it is not empty, it will fetch the location data and set the data to the state. */
     if (city == "") {
       alert("please input city name");
     } else {
@@ -59,6 +65,9 @@ const Home = () => {
     <div style={{ position: "relative", padding: "0px 10px" }}>
       <UseDialog handleAgree={handleAgree} hadndleDisAgree={hadndleDisAgree} />
 
+      {/* This is a conditional statement that checks if the user has agreed to the terms and
+      conditions. If the user has agreed, it will display the DisplayLocation component. If the user
+      has not agreed, it will return nothing.  */}
       {agree ? (
         <>
           <DisplayLocation
@@ -68,6 +77,8 @@ const Home = () => {
           />
         </>
       ) : null}
+      {/* A conditional statement that checks if the dialog box is open. If it is open, it will return
+     nothing. If it is not open, it will display the Users component.  */}
       {open ? null : <Users />}
     </div>
   );

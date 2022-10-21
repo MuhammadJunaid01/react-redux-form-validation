@@ -11,10 +11,10 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
   const { data } = useSelector((state) => state.userLocation);
   const [weather, setWeather] = useState({});
   const [focus, setFocus] = useState(false);
-  console.log(data);
   useEffect(() => {
+    /* Checking if the data.Key is undefined, if it is undefined it will return nothing, if it is not
+    undefined it will call the weatherData function and set the weather state. */
     if (data.Key == undefined) {
-      alert("unde");
       return;
     } else {
       weatherData(data.Key)
@@ -22,10 +22,10 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
         .catch((err) => console.log("weather data err", err));
     }
   }, [data]);
-  console.log("WEATHER jjj", weather);
 
   return (
     <div>
+      {/* Checking if the agree state is true, if it is true it will render the div.  */}
       {agree && (
         <div>
           <Grid container spacing={2}>
@@ -50,6 +50,7 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
                 <div className="weather_logo">
                   <img src={WeatherLogo} alt="WeatherLogo" />
                 </div>
+                {/* Checking if the focus state is true, if it is true it will render the button.  */}
                 {focus && (
                   <button className="search_btn" onClick={handleData}>
                     Search
