@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/navBar.css";
 const Navbar = () => {
   const navigate = useNavigate();
+
   const handleLogOut = () => {
     alert("success");
   };
