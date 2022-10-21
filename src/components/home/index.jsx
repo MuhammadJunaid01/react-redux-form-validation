@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useGetUserLocationQuery } from "../../redux/api/locationApi";
 import { getUserLocation } from "../../redux/reduicers/location";
 import { handleOpenDialog } from "../../redux/reduicers/openDialog";
+import { fetchLocationData, weatherData } from "../../utils/fetchLocationData";
 import UseDialog from "../dialog";
 import DisplayLocation from "../location";
 import Users from "../users";
@@ -12,9 +12,11 @@ const Home = () => {
   /* A hook that is used to get the state of the openDialog reducer. */
   const { open } = useSelector((state) => state.openDialog);
   /* A hook that is used to get the data from the locationApi. */
-  const { data, error } = useGetUserLocationQuery();
+  // const { data, error } = useGetUserLocationQuery();
   const [details, setDetails] = useState({});
   const [agree, setAgree] = useState(false);
+  const [data, setData] = useState({});
+  const [city, setCity] = useState("");
 
   /* A hook that is called when the component is mounted. */
   useEffect(() => {
@@ -35,14 +37,35 @@ const Home = () => {
     setAgree(true);
     dispatch(handleOpenDialog(false));
   };
-
+  useEffect(() => {
+    if (city == "") {
+      return;
+    } else {
+      fetchLocationData(city)
+        .then((data) => setData(data.data[0]))
+        .catch((err) => console.log(err));
+    }
+  }, [city]);
+  const handleData = () => {
+    if (city == "") {
+      alert("please input city name");
+    } else {
+      fetchLocationData(city)
+        .then((data) => setData(data.data[0]))
+        .catch((err) => console.log(err));
+    }
+  };
   return (
     <div style={{ position: "relative", padding: "0px 10px" }}>
       <UseDialog handleAgree={handleAgree} hadndleDisAgree={hadndleDisAgree} />
 
       {agree ? (
         <>
-          <DisplayLocation data={details} agree={agree} />
+          <DisplayLocation
+            handleData={handleData}
+            setCity={setCity}
+            agree={agree}
+          />
         </>
       ) : null}
       {open ? null : <Users />}

@@ -4,10 +4,12 @@ export const openDialogSlice = createSlice({
   name: "openDialogSlice",
   initialState: {
     open: true,
+    close: true,
   },
   reducers: {
     handleOpenDialog: (state, action) => {
       state.open = action.payload;
+      state.close = !state.close;
     },
   },
 });

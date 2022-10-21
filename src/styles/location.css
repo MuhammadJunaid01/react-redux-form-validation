@@ -1,0 +1,48 @@
+.weather_card {
+  width: 96%;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 1px solid #1890ff;
+  margin-bottom: 11px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 20px 8px;
+}
+.weather_card > input {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 9px 15px;
+  border-radius: 20px;
+  outline: none;
+}
+.weather_info {
+  text-align: center;
+  margin: 10px 0px;
+}
+.weather_logo {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.weather_logo > img {
+  height: 100%;
+  width: 100%;
+}
+.search_btn {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding: 7px;
+  background-color: transparent;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}

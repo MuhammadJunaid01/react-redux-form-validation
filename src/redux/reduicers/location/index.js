@@ -5,12 +5,17 @@ export const userLocationSlice = createSlice({
   name: "userLocationSlice",
   initialState: {
     data: {},
+    weather: {},
   },
   reducers: {
     getUserLocation: (state, { payload }) => {
       state.data = payload;
     },
+    getCurruentWeather: (state, { payload }) => {
+      state.weather = payload;
+    },
   },
 });
-export const { getUserLocation } = userLocationSlice.actions;
+export const { getUserLocation, getCurruentWeather } =
+  userLocationSlice.actions;
 export default userLocationSlice.reducer;
