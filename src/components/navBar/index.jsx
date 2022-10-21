@@ -10,6 +10,7 @@ const Navbar = () => {
   return (
     <div className="nav_bar_container">
       <nav>
+        <li onClick={() => navigate("/")}>Home</li>
         <li onClick={() => navigate("/SignUp")}>Sign Up</li>
         <li onClick={() => navigate("/SignIn")}>Sign In</li>
         <li onClick={handleLogOut}>Log out</li>

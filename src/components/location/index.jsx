@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 
 const DisplayLocation = ({ agree }) => {
   const { data } = useSelector((state) => state.userLocation);
-
+  const agreData = JSON.parse(localStorage.getItem("agree"));
+  console.log("agreData", agreData);
   return (
     <div style={{ textAlign: "center" }}>
       {agree && (

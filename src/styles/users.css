@@ -1,0 +1,32 @@
+.users_container {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: transparent;
+  position: relative;
+}
+.user_frofile_container {
+  background-color: #26235c;
+  padding: 10px;
+  text-align: center;
+  border-radius: 9px;
+  width: 95%;
+  position: relative;
+  overflow: hidden;
+}
+.user_image {
+  height: 70px;
+  width: 70px;
+  position: relative;
+  padding: 2px;
+  border-right: 1px solid #f7df1e;
+  border-top: 1px solid #f7df1e;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.user_image > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: relative;
+}

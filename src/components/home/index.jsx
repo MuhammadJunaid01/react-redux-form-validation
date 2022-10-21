@@ -6,47 +6,48 @@ import { handleOpenDialog } from "../../redux/reduicers/openDialog";
 
 import UseDialog from "../dialog";
 import DisplayLocation from "../location";
+import Users from "../users";
 
 const Home = () => {
   const dispatch = useDispatch();
-  // const [data, setData] = useState();
+
+  /* A hook that is used to get the state of the openDialog reducer. */
   const { open } = useSelector((state) => state.openDialog);
+  /* A hook that is used to get the data from the locationApi. */
   const { data, error } = useGetUserLocationQuery();
   const [details, setDetails] = useState({});
   const [agree, setAgree] = useState(false);
-  const handleClickOpen = () => {};
 
-  const handleClose = () => {};
+  /* A hook that is called when the component is mounted. */
   useEffect(() => {
-    // const data = fetchUserData();
-    // data.then((details) => setDetails(details));
     dispatch(getUserLocation(data));
-    handleClickOpen();
-
-    console.log(data);
   }, [data]);
+  /**
+   * If the user clicks the 'Disagree' button, the dialog box will close and the user will be
+   * redirected to the home page.
+   */
   const hadndleDisAgree = () => {
     setAgree(false);
     dispatch(handleOpenDialog(false));
   };
+  /**
+   * When the user clicks the button, the dialog box closes and the user is set to agree.
+   */
   const handleAgree = () => {
     setAgree(true);
     dispatch(handleOpenDialog(false));
   };
   console.log(details);
   return (
-    <div>
-      <UseDialog
-        handleAgree={handleAgree}
-        hadndleDisAgree={hadndleDisAgree}
-        handleClose={handleClose}
-      />
+    <div style={{ position: "relative" }}>
+      <UseDialog handleAgree={handleAgree} hadndleDisAgree={hadndleDisAgree} />
 
-      {open ? null : (
+      {agree ? (
         <>
           <DisplayLocation data={details} agree={agree} />
         </>
-      )}
+      ) : null}
+      {open ? null : <Users />}
     </div>
   );
 };

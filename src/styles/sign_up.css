@@ -10,7 +10,7 @@
   width: 100%;
 }
 .sign_up_from {
-  width: 30%;
+  width: 100%;
   height: fit-content;
   border: 1px solid #1890ff;
   margin: 0 auto;
@@ -54,4 +54,15 @@
   font-size: 19px;
   font-weight: 700;
   background: #1890ff;
+}
+
+@media screen and (max-width: 648px) {
+  .sign_up_from {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .sign_up_well_come_logo > img {
+    width: 80%;
+    margin: 0 auto;
+  }
 }

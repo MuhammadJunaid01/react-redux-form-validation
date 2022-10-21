@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
 import "../../styles/useDialog.css";
 import { Grid } from "@mui/material";
-const UseDialog = ({ handleAgree, hadndleDisAgree, handleClose }) => {
+const UseDialog = ({ handleAgree, hadndleDisAgree }) => {
   const { open } = useSelector((state) => state.openDialog);
   return (
     <div className="useDailog_container">
