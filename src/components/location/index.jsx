@@ -22,7 +22,6 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
         .catch((err) => console.log("weather data err", err));
     }
   }, [data]);
-
   return (
     <div>
       {/* Checking if the agree state is true, if it is true it will render the div.  */}
@@ -41,11 +40,24 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
                   }}
                 />
                 <div className="weather_info">
-                  <p>Country: {data?.Country?.EnglishName}</p>
-                  <p>Latitude: {data?.GeoPosition?.Latitude}</p>
-                  <p>Longitude: {data?.GeoPosition?.Longitude}</p>
-                  <p>City:{data?.Region?.EnglishName}</p>
-                  <p>Temperature: {weather?.Temperature?.Metric?.Value}C</p>
+                  <p style={{ marginBottom: "5px" }}>
+                    Country: {data?.Country?.EnglishName}
+                  </p>
+                  <p style={{ marginBottom: "8px" }}>
+                    City: {data.LocalizedName}
+                  </p>
+                  <p style={{ marginBottom: "8px" }}>
+                    Latitude: {data?.GeoPosition?.Latitude}
+                  </p>
+                  <p style={{ marginBottom: "8px" }}>
+                    Longitude: {data?.GeoPosition?.Longitude}
+                  </p>
+                  <p style={{ marginBottom: "8px" }}>
+                    Region:{data?.Region?.EnglishName}
+                  </p>
+                  <p style={{ marginBottom: "5px" }}>
+                    Temperature: {weather?.Temperature?.Metric?.Value}C
+                  </p>
                 </div>
                 <div className="weather_logo">
                   <img src={WeatherLogo} alt="WeatherLogo" />
