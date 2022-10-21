@@ -1,8 +1,7 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import "../../styles/users.css";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import InstagramIcon from "@mui/icons-material/Instagram";
+
 import { displayUser } from "../../utils";
 const Users = () => {
   return (
@@ -56,21 +55,6 @@ const Users = () => {
                   >
                     {user.email}
                   </p>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "17px",
-
-                      justifyContent: "center",
-                    }}
-                  >
-                    <p>
-                      <InstagramIcon />
-                    </p>
-                    <p>
-                      <TwitterIcon />
-                    </p>
-                  </div>
                 </div>
               </div>
             </Grid>

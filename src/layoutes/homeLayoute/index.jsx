@@ -12,7 +12,7 @@ const HomeLayoute = ({ children, isSignUp }) => {
         <Navbar />
       </div>
       {children}
-      {isSignUp ? null : <div>{open ? null : <Footer />}</div>}
+      {/* {isSignUp ? null : <div>{open ? null : <Footer />}</div>} */}
     </>
   );
 };

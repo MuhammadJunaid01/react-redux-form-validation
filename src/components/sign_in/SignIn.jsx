@@ -6,6 +6,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { signInValidationSchema } from "../../utils";
 import { useSignInQuery } from "../../redux/api/auth";
 import { Grid } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SignIn = () => {
   const { data, error } = useSignInQuery();
 
@@ -13,14 +15,42 @@ const SignIn = () => {
   const navigate = useNavigate();
   const handleSubmit = (value) => {
     // console.log("hello value", value);
-    const g = data?.find((user) => {
+    const matched = data?.find((user) => {
       return user.email == value.email && user.password == value.password;
     });
-    console.log("matched", g);
+    console.log("matched", matched);
+    if (matched) {
+      navigate("/");
+    } else {
+      toast.error("email or password maybe invalid! Please try again.", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
   };
+
   return (
     <div>
       <div className="sign_up_container">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+
         <div className="sign_up_content">
           <Grid container spacing={2}>
             <Grid xs={12} md={6} item>

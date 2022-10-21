@@ -11,6 +11,12 @@
       "email": "m.junaidbkh2020@gmail.com",
       "password": "6hhhhhhhh!",
       "id": 2
+    },
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "Test12345!",
+      "id": 2
     }
   ]
 }

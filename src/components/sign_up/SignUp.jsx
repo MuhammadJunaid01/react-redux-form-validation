@@ -9,17 +9,24 @@ import { useSignUpMutation } from "../../redux/api/auth";
 import { Grid } from "@mui/material";
 const SignUp = () => {
   const navigate = useNavigate();
+  /* A hook that is used to make a mutation request. */
   const [signUp, { data, error, isSuccess, isLoading }] = useSignUpMutation();
   const [isSignUp, setIsSignUp] = useState(true);
+  /* Checking if the data is available, if it is available, it will navigate to the home page. */
   useEffect(() => {
     if (data) {
       navigate("/");
     }
   }, [data]);
+  /**
+   * When the user clicks the submit button, the values from the form are passed to the signUp
+   * function.
+   */
   const handleSubmit = (values) => {
     console.log(values);
     signUp(values);
   };
+  /* This is a simple error handling. If there is an error, it will return the error message. */
   if (error) {
     return <h1>Something was wrong! </h1>;
   }

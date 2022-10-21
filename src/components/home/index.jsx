@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useGetUserLocationQuery } from "../../redux/api/locationApi";
 import { getUserLocation } from "../../redux/reduicers/location";
 import { handleOpenDialog } from "../../redux/reduicers/openDialog";
-
 import UseDialog from "../dialog";
 import DisplayLocation from "../location";
 import Users from "../users";
-
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -37,9 +35,9 @@ const Home = () => {
     setAgree(true);
     dispatch(handleOpenDialog(false));
   };
-  console.log(details);
+
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", padding: "0px 10px" }}>
       <UseDialog handleAgree={handleAgree} hadndleDisAgree={hadndleDisAgree} />
 
       {agree ? (
