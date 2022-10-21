@@ -1,9 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/navBar.css";
+
 const Navbar = () => {
   const navigate = useNavigate();
 
+  /**
+   * When the user clicks the logout button, the user will be alerted that they have successfully logged
+   * out.
+   */
   const handleLogOut = () => {
     alert("success");
   };

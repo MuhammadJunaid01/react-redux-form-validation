@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/* Creating a slice of the redux store. */
 export const userLocationSlice = createSlice({
   name: "userLocationSlice",
   initialState: {

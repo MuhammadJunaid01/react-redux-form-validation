@@ -5,6 +5,7 @@ import openDialog from "../../reduicers/openDialog";
 
 import { authApi } from "../auth";
 import { locationApi } from "../locationApi";
+/* Creating a store with the reducers and middleware. */
 export const store = configureStore({
   reducer: {
     openDialog: openDialog,

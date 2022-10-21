@@ -30,7 +30,6 @@ const SignUp = () => {
   if (error) {
     return <h1>Something was wrong! </h1>;
   }
-  console.log("ENV", process.env.REACT_APP_API_KEY);
   return (
     <div className="sign_up_container">
       <div className="sign_up_content">

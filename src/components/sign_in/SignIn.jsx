@@ -9,16 +9,16 @@ import { Grid } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const SignIn = () => {
+  /* A hook that is used to fetch data from the database. */
   const { data, error } = useSignInQuery();
 
-  console.log(data);
   const navigate = useNavigate();
+  /* Checking if the user is in the database. */
   const handleSubmit = (value) => {
-    // console.log("hello value", value);
     const matched = data?.find((user) => {
       return user.email == value.email && user.password == value.password;
     });
-    console.log("matched", matched);
+
     if (matched) {
       navigate("/");
     } else {

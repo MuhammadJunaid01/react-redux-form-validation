@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+/* A React component that is using the useSelector hook to get the data from the Redux store. */
 const DisplayLocation = ({ agree }) => {
+  /* Destructuring the data from the state.userLocation. */
   const { data } = useSelector((state) => state.userLocation);
-  const agreData = JSON.parse(localStorage.getItem("agree"));
-  console.log("agreData", agreData);
+
   return (
     <div style={{ textAlign: "center" }}>
       {agree && (

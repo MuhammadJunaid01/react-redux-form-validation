@@ -7,28 +7,6 @@ const UseDialog = ({ handleAgree, hadndleDisAgree }) => {
   const { open } = useSelector((state) => state.openDialog);
   return (
     <div className="useDailog_container">
-      {/* <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"Use Google's location service?"}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending
-            anonymous location data to Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={hadndleDisAgree}>Disagree</Button>
-          <Button onClick={handleAgree} autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog> */}
       <Grid container spacing={2}>
         <Grid item xs={12} md={3}></Grid>
         <Grid item xs={12} md={6}>

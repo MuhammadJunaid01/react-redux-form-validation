@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { baseUrl } from "../baseUrl";
 
+/* Creating a hook for the signUp mutation and signIn query. */
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
