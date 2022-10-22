@@ -5,6 +5,8 @@ import "../../styles/location.css";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WeatherLogo from "../../assets/images/weather.gif";
 import { weatherData } from "../../utils/fetchLocationData";
+import { ToastContainer, toast } from "react-toastify";
+
 /* A React component that is using the useSelector hook to get the data from the Redux store. */
 const DisplayLocation = ({ agree, setCity, handleData }) => {
   /* Destructuring the data from the state.userLocation. */
@@ -14,16 +16,27 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
   useEffect(() => {
     /* Checking if the data.Key is undefined, if it is undefined it will return nothing, if it is not
     undefined it will call the weatherData function and set the weather state. */
-    if (data.Key == undefined) {
+    if (data?.Key == undefined) {
+      toast.error("Please input right city name", {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
       return;
     } else {
-      weatherData(data.Key)
+      weatherData(data?.Key)
         .then((data) => setWeather(data.data[0]))
         .catch((err) => console.log("weather data err", err));
     }
   }, [data]);
   return (
     <div>
+      <ToastContainer />
       {/* Checking if the agree state is true, if it is true it will render the div.  */}
       {agree && (
         <div>
@@ -44,7 +57,7 @@ const DisplayLocation = ({ agree, setCity, handleData }) => {
                     Country: {data?.Country?.EnglishName}
                   </p>
                   <p style={{ marginBottom: "8px" }}>
-                    City: {data.LocalizedName}
+                    City: {data?.LocalizedName}
                   </p>
                   <p style={{ marginBottom: "8px" }}>
                     Latitude: {data?.GeoPosition?.Latitude}

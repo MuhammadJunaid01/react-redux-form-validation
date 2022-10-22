@@ -20,11 +20,12 @@ export const fetchLocationData = async (cityName) => {
 
 /**
  * It returns the weather data from the AccuWeather API.
- * @param key - The key is the location key.
- * @returns the response from the API.
+ * param key - The key is the location key.
+ * returns the response from the API.
  */
 export const weatherData = async (key) => {
   /* A try catch block. It is used to catch errors. */
+
   try {
     const res = await axios.get(
       `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=lvemfIVtmZjNcAMGNIw495OSlryM9e3k`

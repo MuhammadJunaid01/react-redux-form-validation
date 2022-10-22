@@ -6,6 +6,8 @@ import { fetchLocationData, weatherData } from "../../utils/fetchLocationData";
 import UseDialog from "../dialog";
 import DisplayLocation from "../location";
 import Users from "../users";
+import { ToastContainer, toast } from "react-toastify";
+
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -58,13 +60,24 @@ const Home = () => {
     } else {
       fetchLocationData(city)
         .then((data) => setData(data.data[0]))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          return toast.error(`${err.message}`, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        });
     }
   };
   return (
     <div style={{ position: "relative", padding: "0px 10px" }}>
       <UseDialog handleAgree={handleAgree} hadndleDisAgree={hadndleDisAgree} />
-
+      <ToastContainer />
       {/* This is a conditional statement that checks if the user has agreed to the terms and
       conditions. If the user has agreed, it will display the DisplayLocation component. If the user
       has not agreed, it will return nothing.  */}
